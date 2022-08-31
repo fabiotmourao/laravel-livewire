@@ -7,14 +7,24 @@ use Livewire\Component;
 
 class ShowTweets extends Component
 {
-    public $message = 'teste de bind livewire';
+
+    protected $listeners = ['createTweet'];
+
+    public $tweets;
+
+    public function mount()
+    {
+        $this->tweets = Tweet::get();
+    }
+
+    public function createTweet($id)
+    {
+        dd($id);
+        $this->tweets = Tweet::get();
+    }
 
     public function render()
     {
-        $tweets = Tweet::with('user')->get();
-
-        return view('livewire.show-tweets', [
-            'tweets'=> $tweets,
-        ]);
+        return view('livewire.show-tweets');
     }
 }

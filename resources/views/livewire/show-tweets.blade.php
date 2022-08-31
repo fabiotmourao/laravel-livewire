@@ -1,20 +1,19 @@
 <div>
-    Show Tweets
-
-    <input type="text" name="message"  id="message" wire:model='message'
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-96 p-2.5 dark:bg-gray-700
-        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" >
-
-    <div class="overflow-x-auto relative">
-
+    <div class="w-6/12 self-center mt-8 ml-8">
+        Show Tweets
     </div>
-    <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+
+    <div class="w-6/12 self-center mt-8 ml-8">
+        <livewire:components.guest.formguest>
+    </div>
+
+    <table class="mt-8 text-sm text-center text-gray-500 dark:text-gray-400 w-11/12">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="py-3 px-6 text-left">Nome</th>
               <th scope="col" class="py-3 px-6 text-left">Tweet</th>
             </tr>
-          </thead>
+        </thead>
 
         @forelse ($tweets as $tweet)
         <tbody>
@@ -30,6 +29,4 @@
             Não existe nenhum Tweet
         @endforelse
     </table>
-
-
 </div>
